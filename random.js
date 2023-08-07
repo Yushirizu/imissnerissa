@@ -1,6 +1,6 @@
 function getRandomImage() {
   const Images = [];
-  const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissnerissa/main/assets/Nerissa_';
+  const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissshiori/main/assets/shiori_';
   const imageFormat = '.jpg';
   const totalImages = 152;
 
