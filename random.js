@@ -1,6 +1,6 @@
 function getRandomSadImage() {
   const sadImages = [];
-  const baseUrl = 'https://github.com/Yushirizu/imissnerissa/blob/main/assets/Nerissa_';
+  const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissnerissa/main/assets/Nerissa_';
   const imageFormat = '.jpg';
   const totalImages = 152;
 
