@@ -4,8 +4,11 @@ html, body {
 }
 
 img {
-  width: 45%;
+  width: 100%; /* Make images responsive to their container */
+  max-width: 400px; /* Limit maximum image width for larger screens */
   border-radius: 5px;
+  display: block; /* Remove any extra whitespace below the images */
+  margin: 0 auto; /* Center images horizontally */
 }
 
 a {
@@ -41,7 +44,7 @@ footer {
 
 div.center {
   margin: auto;
-  width: 60%;
+  width: 90%; /* Increase the width to make it more responsive */
   padding: 10px;
 }
 
@@ -100,22 +103,14 @@ div.center {
 
   #live a {
     padding-top: 3%;
-    inline-size: 450px;
-  }
-
-  img {
-    width: 70%;
-  }
-
-  #happy {
-    width: 45%;
+    max-width: 450px; /* Limit the link's maximum width for larger screens */
   }
 }
 
 /* Styles for Phone */
 @media (max-width: 600px) {
   #live:not(:empty) {
-    width: auto;
+    width: 90%; /* Increase the width for better visibility on small screens */
   }
 
   footer {
@@ -123,12 +118,13 @@ div.center {
   }
 
   img {
-    width: 100%;
+    width: 100%; /* Full-width images on small screens */
+    max-width: 300px; /* Limit the maximum image width for small screens */
   }
 
   #live a {
     padding-top: 6%;
-    inline-size: 300px;
+    max-width: 300px; /* Limit the link's maximum width for small screens */
   }
 }
 
