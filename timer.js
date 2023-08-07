@@ -57,7 +57,7 @@ function handlePastStream(pastStream) {
   const lastStreamDate = new Date(pastStream.available_at);
   htmlTimer();
   startTimer(correctTime(lastStreamDate, pastStream.duration));
-  getRandomSadImage();
+  getRandomImage();
 }
 
 function displayStreamInfo(channelId, title, videoId, isNerissa) {
