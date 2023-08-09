@@ -24,8 +24,8 @@ html, body {
 
 .countup {
   text-align: center;
-  margin: 0 auto; /* Add this line to center the counter */
-  margin-bottom: 20px;
+    /* Add this line to center the counter */
+    margin: 0 auto 20px;
 }
 
 img {
