@@ -1,5 +1,5 @@
 window.onload = function() {
-  const shiori_id = 'UCgnfPPb9JI3e9A4cXHnWbyg'; // Channel ID
+  const nerissa_id = 'UC_sFNM0z0MWm9A6WlKPuMMg'; // Channel ID
 
   // Fetch arguments
   const options = {
@@ -10,13 +10,13 @@ window.onload = function() {
     },
     body:
       '{"sort":"newest", "lang":["en","ja"],"target":["stream"],"conditions":[],"vch":["' +
-      shiori_id +
+      nerissa_id +
       '"],"org":["Hololive"],"comment":[],"paginated":true,"offset":0,"limit":5}'
   };
 
-  // Helper function to check if shiori is live in the fetched data
-  function isshioriLive(data) {
-    return data.items.some((item) => item.status === 'live' && item.channel.id === shiori_id);
+  // Helper function to check if nerissa is live in the fetched data
+  function isnerissaLive(data) {
+    return data.items.some((item) => item.status === 'live' && item.channel.id === nerissa_id);
   }
 
   // Helper function to get the first live stream index
@@ -30,11 +30,11 @@ window.onload = function() {
     .then((data) => {
       let liveStreamIndex = getFirstLiveStreamIndex(data);
 
-      if (isshioriLive(data)) {
-        // shiori is live
+      if (isnerissaLive(data)) {
+        // nerissa is live
         handleLiveStream(data.items[liveStreamIndex]);
       } else {
-        // shiori is not live, find the last stream
+        // nerissa is not live, find the last stream
         let pastStreamIndex = data.items.findIndex((item) => item.status !== 'upcoming');
         handlePastStream(data.items[pastStreamIndex]);
       }
@@ -47,10 +47,10 @@ window.onload = function() {
 function handleLiveStream(liveStream) {
   document.getElementById('result').innerHTML = `<img id="happy" src="assets/happy.png">`;
 
-  const isshiori = liveStream.channel.id === shiori_id;
-  document.getElementById('status').innerHTML = isshiori ? 'shiori IS LIVE' : 'shiori IS HERE';
+  const isnerissa = liveStream.channel.id === nerissa_id;
+  document.getElementById('status').innerHTML = isnerissa ? 'nerissa IS LIVE' : 'nerissa IS HERE';
 
-  displayStreamInfo(liveStream.channel.id, liveStream.title, liveStream.id, isshiori);
+  displayStreamInfo(liveStream.channel.id, liveStream.title, liveStream.id, isnerissa);
 }
 
 function handlePastStream(pastStream) {
@@ -60,14 +60,14 @@ function handlePastStream(pastStream) {
   getRandomImage();
 }
 
-function displayStreamInfo(channelId, title, videoId, isshiori) {
-  // Fetch stream info of the channel shiori is streaming/featured on
+function displayStreamInfo(channelId, title, videoId, isnerissa) {
+  // Fetch stream info of the channel nerissa is streaming/featured on
   fetch(
     `https://www.googleapis.com/youtube/v3/activities?part=snippet,contentDetails&maxResults=2&channelId=${channelId}&type=upload&key=YOUR_YOUTUBE_API_KEY`
   )
     .then((response) => response.json())
     .then((data) => {
-      const streamThumbnail = isshiori ? data.items[0].snippet.thumbnails.maxres.url : data.items[1].snippet.thumbnails.maxres.url;
+      const streamThumbnail = isnerissa ? data.items[0].snippet.thumbnails.maxres.url : data.items[1].snippet.thumbnails.maxres.url;
       document.getElementById('live').innerHTML = `<img class="thumb" style="width: 131px; height: 99px; justify-content: left;" src="${streamThumbnail}">`;
       document.getElementById('live').innerHTML += `<a href="https://www.youtube.com/watch?v=${videoId}">${title}`;
     })
