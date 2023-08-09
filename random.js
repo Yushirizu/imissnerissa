@@ -1,10 +1,14 @@
 function getRandomImage() {
   const Images = [];
+<<<<<<< Updated upstream
 <<<<<<< HEAD
   const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissshiori/main/assets/Shiori_';
 =======
   const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissnerissa/main/assets/nerissa_';
 >>>>>>> e598d8cd2e586b08f0b977b5f6739c8dbda7d8cf
+=======
+  const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissnerissa/main/assets/Nerissa_';
+>>>>>>> Stashed changes
   const imageFormat = '.jpg';
   const totalImages = 100; // We want images from 0 to 99, so the total number of images is 100.
 
