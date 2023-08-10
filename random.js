@@ -1,25 +1,13 @@
 function getRandomImage() {
-  const Images = [];
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-  const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissshiori/main/assets/Shiori_';
-=======
-  const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissnerissa/main/assets/nerissa_';
->>>>>>> e598d8cd2e586b08f0b977b5f6739c8dbda7d8cf
-=======
   const baseUrl = 'https://raw.githubusercontent.com/Yushirizu/imissnerissa/main/assets/Nerissa_';
->>>>>>> Stashed changes
   const imageFormat = '.jpg';
-  const totalImages = 100; // We want images from 0 to 99, so the total number of images is 100.
+  const totalImages = 288; // We want images from 1 to 288, so the total number of images is 288.
+  const minImageNumber = 1;
+  const maxImageNumber = 288;
 
-  for (let i = 0; i <= totalImages; i++) { // Start from 0 to include Shiori_0.jpg
-    const imageNumber = i.toString().padStart(1, '0'); // Use padStart(2, '0') if you want leading zeros for numbers less than 10
-    const imageUrl = `${baseUrl}${imageNumber}${imageFormat}`;
-    Images.push(imageUrl);
-  }
+  const randomImageNumber = Math.floor(Math.random() * (maxImageNumber - minImageNumber + 1)) + minImageNumber;
+  const imageNumber = randomImageNumber.toString().padStart(4, '0'); // Use padStart(4, '0') to add leading zeros for numbers less than 1000
+  const imageUrl = `${baseUrl}${imageNumber}${imageFormat}`;
 
-  const randomIndex = Math.floor(Math.random() * Images.length);
-  const randomImageUrl = Images[randomIndex];
-
-  document.getElementById('result').innerHTML = `<img src="${randomImageUrl}">`;
+  document.getElementById('result').innerHTML = `<img src="${imageUrl}">`;
 }
